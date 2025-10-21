@@ -73,7 +73,8 @@ function edgeForm1(inst::instData, params::parameterData)
         set_optimizer_attribute(model,"CPX_PARAM_EPGAP",params.tolgap) # relative MIP optimality gap
         #set_optimizer_attribute(model,"CPX_PARAM_LPMETHOD",0) # method used in root node
         set_optimizer_attribute(model,"CPX_PARAM_NODELIM",params.maxnodes) # MIP node limit
-        set_optimizer_attribute(model,"CPX_PARAM_THREADS",params.threads) # number of threads    
+        set_optimizer_attribute(model,"CPX_PARAM_THREADS",params.threads) # number of threads 
+        #set_optimizer_attribute(model,"CPXPARAM_Benders_Strategy",3) # 3 full      
     elseif params.solver == "scip"
         model = Model(SCIP.Optimizer)
     else
@@ -118,7 +119,11 @@ function edgeForm1(inst::instData, params::parameterData)
         end
     end
   
-    # write_to_file(model,"edge_signed.lp")
+    # write_to_file(model,"edge1_signed.lp")
+    
+    if params.method == "lp" 
+        undo_relax = relax_integrality(model)
+    end
 
     ### solving the problem ###
     optimize!(model)
@@ -134,19 +139,19 @@ function edgeForm1(inst::instData, params::parameterData)
     
     ### get solutions ###
     if params.method == "mip"
-        obound = objective_bound(model)
+        bbound = objective_bound(model)
         nnodes = node_count(model)
         mgap = MOI.get(model,MOI.RelativeGap())
     end
-    oval = objective_value(model)
+    bval = objective_value(model)
     rtime = solve_time(model)
 
     ### print solutions ###
     open("saida.txt","a") do f
         if params.method == "mip"
-            write(f,"$(params.instName);$(params.form);$(params.method);$(obound);$(oval);$(mgap);$(rtime);$(nnodes);$(opt)\n")
+            write(f,"$(params.instName);$(params.form);$(params.method);$(bbound);$(bval);$(mgap);$(rtime);$(nnodes);$(opt)\n")
         else
-            write(f,"$(params.instName);$(params.form);$(params.method);$(oval);$(rtime)\n")
+            write(f,"$(params.instName);$(params.form);$(params.method);$(bval);$(rtime)\n")
         end
     end
   
@@ -219,6 +224,7 @@ function edgeForm2(inst::instData, params::parameterData)
     ### variables ###
     @variable(model, x[vk], Bin)
     @variable(model, y[edges(inst.G)], Bin)
+    #@variable(model, y[edges(inst.G)] <= 1.0)
     
     ### objective function ###
     @objective(model, Min, sum(y[e] for e in edges(inst.G)))
@@ -265,7 +271,11 @@ function edgeForm2(inst::instData, params::parameterData)
         end
     end
   
-    # write_to_file(model,"edge_signed.lp")
+    # write_to_file(model,"edge2_signed.lp")
+    
+    if params.method == "lp" 
+        undo_relax = relax_integrality(model)
+    end
 
     ### solving the problem ###
     optimize!(model)
