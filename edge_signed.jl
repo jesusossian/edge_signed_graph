@@ -23,6 +23,8 @@ params = parameters.readParameters(ARGS)
 # read instance data
 inst = data.readData(params.instName, params)
 
-if (params.form == "edge")
-    edgeFormulation.edgeForm(inst,params)
+if (params.form == "edge1")
+    edgeFormulation.edgeForm1(inst,params)
+elseif (params.form == "edge2")
+    edgeFormulation.edgeForm2(inst,params)
 end

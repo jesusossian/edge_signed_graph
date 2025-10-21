@@ -23,9 +23,9 @@ function readParameters(ARGS)
     ### Set standard values for the parameters ###
     instName = "data/kmbs/RANDOM/random_n20_k2_pos30_neg5_err5_1.g"
     numbk = 3
-    form = "edges"
-    solver = "scip"
-    method = "mip"
+    form = "edge1"
+    solver = "cplex"
+    method = "lp"
     maxtime = 3600
     tolgap = 1e-6
     disablesolver = 0
