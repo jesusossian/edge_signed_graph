@@ -1,0 +1,15 @@
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err5_1.g;edge2;lp;0.0;0.002048969268798828
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err5_2.g;edge2;lp;0.0;0.002051115036010742
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err5_3.g;edge2;lp;0.0;0.0021049976348876953
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err5_4.g;edge2;lp;0.0;0.0019168853759765625
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err5_5.g;edge2;lp;0.0;0.0020189285278320312
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err10_1.g;edge2;lp;0.0;0.0019800662994384766
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err10_2.g;edge2;lp;0.0;0.0020761489868164062
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err10_3.g;edge2;lp;0.0;0.002073049545288086
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err10_4.g;edge2;lp;0.0;0.0019910335540771484
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err10_5.g;edge2;lp;0.0;0.0021479129791259766
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err20_1.g;edge2;lp;0.0;0.0019440650939941406
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err20_2.g;edge2;lp;0.0;0.002093076705932617
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err20_3.g;edge2;lp;0.0;0.0020101070404052734
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err20_4.g;edge2;lp;0.0;0.0019888877868652344
+data/kmbs/RANDOM/random_n60_k4_pos30_neg5_err20_5.g;edge2;lp;0.0;0.002064943313598633

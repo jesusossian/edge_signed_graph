@@ -1,11 +1,11 @@
 #!/bin/bash
 
-form_=edge1
-method_=mip 
+form_=edge3
+method_=mip
 
 for n in 60
 do
-    for k in 5 #2 3 4 5 
+    for k in 3 4 5 # 2 3 4 5 
     do
         for pos in 30
         do
