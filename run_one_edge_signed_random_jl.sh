@@ -1,10 +1,8 @@
 #!/bin/bash
 
-form_=edge 
-inst_="data/kmbs/RANDOM/random_n20_k2_pos30_neg5_err5_1.g"
+form_=edge1
 method_="mip"
-k=2
+inst_="data/kmbs/RANDOM/random_n60_k3_pos30_neg5_err20_4.g"
 
-julia edge_signed.jl --inst ${inst_} --form ${form_} --numbk ${k}
+julia edge_signed.jl --inst ${inst_} --form ${form_} --numbk ${k} --method ${method_}
 
-#mv saida.txt result/
