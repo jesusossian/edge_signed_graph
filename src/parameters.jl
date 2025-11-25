@@ -31,8 +31,8 @@ function readParameters(ARGS)
     disablesolver = 0
     maxnodes = 10000000.0
     threads = 1
-    presolve = -1 # default -1
-    cuts = -1 # default -1
+    presolve = 0 # default -1
+    cuts = 0 # default -1
     mipfocus = 0 # default 0
 
     ### Read the parameters and setvalues whenever provided ###
