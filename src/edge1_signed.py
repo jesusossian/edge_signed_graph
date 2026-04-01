@@ -138,14 +138,16 @@ if __name__ == "__main__":
     model.setParam(gp.GRB.Param.TimeLimit,3600.0)
     model.setParam(gp.GRB.Param.MIPGap,1.e-6)
     model.setParam(gp.GRB.Param.Threads,1)
-    model.setParam(gp.GRB.Param.Cuts,0)
+    
+    #model.setParam(gp.GRB.Param.Cuts,0)
     # Global cut aggressiveness setting. 
     # Use value 0 to shut off cuts, 
     # 1 for moderate cut generation, 
     # 2 for aggressive cut generation, 
     # and 3 for very aggressive cut generation. 
     # The default -1 value chooses automatically.
-    model.setParam(gp.GRB.Param.Presolve,0)
+    
+    #model.setParam(gp.GRB.Param.Presolve,0)
     # Controls the presolve level. 
     # automatic setting (-1). 
     # off (0), 
@@ -153,6 +155,7 @@ if __name__ == "__main__":
     # or aggressive (2). 
     # More aggressive application of presolve takes more time, 
     # but can sometimes lead to a significantly tighter model.
+    
     #model.setParam(gp.GRB.Param.BranchDir,1)
     # default 0
     # -1 will always explore the down branch first, 
@@ -195,7 +198,7 @@ if __name__ == "__main__":
             
     # export solution
     if method == "mip":
-        arq = open(os.path.join(results_path,f'{method}_n{n}_edge1_signed_.txt'),'a')
+        arq = open(os.path.join(results_path,f'{method}_n{n}_edge1_signed_default.txt'),'a')
         arq.write(instance+';'
         +str(round(objval,2))+';'
         +str(round(objbound,2))+';'
@@ -204,7 +207,7 @@ if __name__ == "__main__":
         +str(round(nodecount,2))+';'
         +str(round(tmp,2))+'\n')
     else:
-        arq = open(os.path.join(results_path,f'{method}_n{n}_edge1_signed.txt'),'a')
+        arq = open(os.path.join(results_path,f'{method}_n{n}_edge1_signed_default.txt'),'a')
         arq.write(instance+';'
         +str(round(objval,2))+';'
         +str(round(runtime,2))+'\n')
