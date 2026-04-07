@@ -138,7 +138,7 @@ if __name__ == "__main__":
     model.setParam(gp.GRB.Param.MIPGap,1.e-6)
     model.setParam(gp.GRB.Param.Threads,1)
     
-    model.setParam(gp.GRB.Param.Presolve,0)
+    #model.setParam(gp.GRB.Param.Presolve,0)
     # Controls the presolve level. 
     # automatic setting (-1). 
     # off (0), 
@@ -206,7 +206,7 @@ if __name__ == "__main__":
         +str(round(nodecount,2))+';'
         +str(round(tmp,2))+'\n')
     else:
-        arq = open(os.path.join(results_path,f'{method}_n{n}_edge2_signed.txt'),'a')
+        arq = open(os.path.join(results_path,f'{method}_n{n}_edge2_signed_default.txt'),'a')
         arq.write(instance+';'
         +str(round(objval,2))+';'
         +str(round(runtime,2))+'\n')

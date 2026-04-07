@@ -114,7 +114,7 @@ if __name__ == "__main__":
         constr = 0
         for i in K:
             constr += x[(v,i)] 
-        model.addConstr(constr == 1.0, "con2")
+        model.addConstr(constr >= 1.0, "con2")
 
     for e in EN:
         for i in K:
@@ -138,15 +138,7 @@ if __name__ == "__main__":
     model.setParam(gp.GRB.Param.TimeLimit,3600.0)
     model.setParam(gp.GRB.Param.MIPGap,1.e-6)
     model.setParam(gp.GRB.Param.Threads,1)
-    
-    #model.setParam(gp.GRB.Param.Cuts,0)
-    # Global cut aggressiveness setting. 
-    # Use value 0 to shut off cuts, 
-    # 1 for moderate cut generation, 
-    # 2 for aggressive cut generation, 
-    # and 3 for very aggressive cut generation. 
-    # The default -1 value chooses automatically.
-    
+        
     #model.setParam(gp.GRB.Param.Presolve,0)
     # Controls the presolve level. 
     # automatic setting (-1). 
@@ -156,6 +148,14 @@ if __name__ == "__main__":
     # More aggressive application of presolve takes more time, 
     # but can sometimes lead to a significantly tighter model.
     
+    #model.setParam(gp.GRB.Param.Cuts,0)
+    # Global cut aggressiveness setting. 
+    # Use value 0 to shut off cuts, 
+    # 1 for moderate cut generation, 
+    # 2 for aggressive cut generation, 
+    # and 3 for very aggressive cut generation. 
+    # The default -1 value chooses automatically.
+
     #model.setParam(gp.GRB.Param.BranchDir,1)
     # default 0
     # -1 will always explore the down branch first, 

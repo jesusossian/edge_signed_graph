@@ -2,7 +2,7 @@
 
 method="mip"
 
-for form in 3
+for form in 1
 do
     for n in 60
     do
