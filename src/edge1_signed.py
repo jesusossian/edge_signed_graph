@@ -198,7 +198,7 @@ if __name__ == "__main__":
             
     # export solution
     if method == "mip":
-        arq = open(os.path.join(results_path,f'{method}_n{n}_edge1_signed_default.txt'),'a')
+        arq = open(os.path.join(results_path,f'{method}_n{n}_edge1_signed_presolve0.txt'),'a')
         arq.write(instance+';'
         +str(round(objval,2))+';'
         +str(round(objbound,2))+';'
