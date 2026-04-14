@@ -139,7 +139,7 @@ if __name__ == "__main__":
     model.setParam(gp.GRB.Param.MIPGap,1.e-6)
     model.setParam(gp.GRB.Param.Threads,1)
         
-    #model.setParam(gp.GRB.Param.Presolve,0)
+    model.setParam(gp.GRB.Param.Presolve,0)
     # Controls the presolve level. 
     # automatic setting (-1). 
     # off (0), 

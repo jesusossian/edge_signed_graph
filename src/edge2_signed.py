@@ -115,7 +115,7 @@ if __name__ == "__main__":
         constr = 0
         for i in K:
             constr += x[(v,i)] 
-        model.addConstr(constr >= 1.0, "con2")
+        model.addConstr(constr == 1.0, "con2")
 
     for e in EN:
         for i in K:
@@ -197,7 +197,7 @@ if __name__ == "__main__":
             
     # export solution
     if method == "mip":
-        arq = open(os.path.join(results_path,f'{method}_n{n}_edge2_signed_presolve0.txt'),'a')
+        arq = open(os.path.join(results_path,f'{method}_n{n}_edge2_signed_eqcon2_default.txt'),'a')
         arq.write(instance+';'
         +str(round(objval,2))+';'
         +str(round(objbound,2))+';'

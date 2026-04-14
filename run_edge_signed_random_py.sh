@@ -6,7 +6,7 @@ for form in 1
 do
     for n in 60
     do
-        for k in 2 3 4 5 
+        for k in 5 
         do
             for pos in 30
             do
