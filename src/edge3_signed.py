@@ -114,7 +114,7 @@ if __name__ == "__main__":
         constr = 0
         for i in K:
             constr += x[(v,i)] 
-        model.addConstr(constr >= 1.0, "con2")
+        model.addConstr(constr == 1.0, "con2")
 
     for e in EN:
         for i in K:
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     model.setParam(gp.GRB.Param.MIPGap,1.e-6)
     model.setParam(gp.GRB.Param.Threads,1)
     
-    #model.setParam(gp.GRB.Param.Presolve,0)
+    model.setParam(gp.GRB.Param.Presolve,0)
     # Controls the presolve level. 
     # automatic setting (-1). 
     # off (0), 
@@ -204,7 +204,7 @@ if __name__ == "__main__":
             
     # export solution
     if method == "mip":
-        arq = open(os.path.join(results_path,f'{method}_n{n}_edge3_signed_presolve0.txt'),'a')
+        arq = open(os.path.join(results_path,f'{method}_n{n}_edge3_signed_eqcon2_presolve0.txt'),'a')
         arq.write(instance+';'
         +str(round(objval,2))+';'
         +str(round(objbound,2))+';'
